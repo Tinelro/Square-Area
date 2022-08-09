@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        </meta>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        </meta>
+        <title>
+            Aria Patratului
+        </title>
+        <style type="text/css">
+            h1 {
+                display: block;
+                color: blue;
+            }           
+            #mainDiv{
+               display: flex ; 
+               justify-content: space-around ;        
+           }
+            p{
+                font-size: xx-large;
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>
+            Calculating the area of the square
+        </h1>
+        <div id="mainDiv">
+            <div>               
+                <p id="messageField">
+                </p>
+            </div>
+        </div>
+        <script type="text/javascript">
+            let sideString = prompt("Insert a number as the side of the square, and we'll calculate the area of the square: ");
+            function area(sideString) {
+               try{
+                    var side = parseFloat(sideString);
+                    if(isNaN(sideString) || ("" + side).length != ("" + sideString.length)){  
+                        var message = document.getElementById("messageField").innerHTML = "The side must be a number."; 
+                        return message;
+                    }
+                    if(side<0) {
+                        var message = document.getElementById("messageField").innerHTML = "The side muste be a positive number."
+                        return message;   
+                    }
+                    var area = side * side;
+                        var message = document.getElementById("messageField").innerHTML = "For side = " + side + ", area of the square = " + area + ".";
+                        return message;                
+                }catch(err){
+                    console.log(err.name);
+                }    
+            }        
+                console.log(area(sideString));
+        </script>
+    </body>
+</html>
